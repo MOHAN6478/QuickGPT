@@ -30,7 +30,7 @@ export const stripeWebhooks = async (request, response) => {
 
                     // Update credits in user account
                     await User.updateOne({_id: transaction.userId}, {$inc: {
-                         credits: transaction.credits
+                        credits: transaction.credits
                     }})
 
                     // Update credit Payment status
@@ -43,7 +43,7 @@ export const stripeWebhooks = async (request, response) => {
             }
                 
             default:
-                console.log("Unhandled type:", event.type)
+                console.log("Unhandled event type:", event.type)
                 break;
         }
 
